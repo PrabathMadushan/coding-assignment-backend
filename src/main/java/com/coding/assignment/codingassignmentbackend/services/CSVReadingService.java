@@ -25,7 +25,8 @@ public class CSVReadingService {
     public ContactResponseDto getPhoneNumber(ContactRequestDto requestDto) {
         String tell = null;
         try {
-            String CSV_FILE_PATH = "C:\\Users\\Pc\\Documents\\csv\\sample-csv.csv";
+            String CSV_FILE_PATH = "csv/sample-csv.csv";
+//            String CSV_FILE_PATH = "C:\\Users\\Pc\\Documents\\csv\\sample-csv.csv";
             Reader in = new FileReader(CSV_FILE_PATH);
             Iterable<CSVRecord> records = CSVFormat.RFC4180.withFirstRecordAsHeader().parse(in);
             for (CSVRecord record : records) {
@@ -35,10 +36,7 @@ public class CSVReadingService {
                     tell = contact;
                     break;
                 }
-
             }
-
-
         } catch (Exception ex) {
             ex.printStackTrace();
         }
